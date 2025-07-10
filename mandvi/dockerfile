@@ -1,0 +1,11 @@
+FROM jupyter/scipy-notebook
+ENV DEBIAN_FRONTEND noninteractive
+
+# Set the working directory inside the container
+WORKDIR /xyz
+
+# Copy the requirements file and install any needed dependencies
+COPY requirements.txt .
+COPY . /xyz/
+
+RUN pip install --no-cache-dir -r requirements.txt
